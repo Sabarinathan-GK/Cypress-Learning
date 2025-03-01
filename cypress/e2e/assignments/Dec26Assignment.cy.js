@@ -95,7 +95,7 @@ describe('December 26 Assignment',() => {
         cy.get('button[data-qa="login-button"]').click();
         cy.get('a[href="/delete_account"]').click();
         cy.get('b').invoke('text').then((delMsg) => {
-            expect(delMsg).equal('ACCOUNT DELETED!')
+            expect(delMsg).equal('Account Deleted!')
         })
         cy.get('[data-qa="continue-button"]').click()
     })
