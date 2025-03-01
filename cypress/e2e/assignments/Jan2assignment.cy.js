@@ -1,0 +1,81 @@
+describe('Access the Multiple Occurances elements', () =>{
+    it.skip('Accessing the Mulitple occurance element and validating the element', ()  =>{
+        cy.visit('/')
+        cy.get('.product-image-wrapper > .choose > .nav > li > a').then(($buttonView) =>{
+            expect($buttonView).to.have.length(34)
+            // expect($buttonView).eq(0).to.contain('View Product')
+        })
+    })
+    it.skip('Searching the Product and Verify the listed Products are Vaild',() => {
+        //Signin Function
+        let name = "NaMuthukumar G";
+        let email = `abckde${Math.random()}`;
+        let password = "Sasabari@26";
+        let days = 26;
+        let month = 9;
+        let year = "1999";
+        let firstName = "NaMuthukumar";
+        let lastName = "G";
+        let company = "CTS";
+        let address = " NO 8 Baja Street";
+        let addresstwo = "T Nagar";
+        let country = "India";
+        let state = "Tamil Nadu";
+        let city = "Chennai";
+        let zipCode = 62003;
+        let mobileNumber = 9877878875;
+        let creationTitle = "Congratulations! Your new account has been successfully created!";
+        cy.visit('/')
+        cy.get('a[href="/login"]').click();
+        cy.get('.signup-form > h2').should('be.visible').then(()=>{
+            cy.get('input[data-qa="signup-name"]').type(name);
+            cy.get('input[data-qa="signup-email"]').type(email+'@gmail.com');
+            cy.log(email)
+            cy.get('button[data-qa="signup-button"]').click();
+        })
+        // Entering the User Details
+        cy.get('#id_gender1').click();
+        cy.get('#password').type(password);
+        cy.log(password)
+        cy.get('select[name="days"]').select(days);
+        cy.get('select[name="months"]').select(month);
+        cy.get('#years').select(year);
+        cy.get('input[name="newsletter"]').click();
+        cy.get('input[name="optin"]').click();
+        cy.get('[data-qa="first_name"]').type(firstName);
+        cy.get('[data-qa="last_name"]').type(lastName);
+        cy.get('[data-qa="company"]').type(company);
+        cy.get('[data-qa="address"]').type(address);
+        cy.get('[data-qa="address2"]').type(addresstwo);
+        cy.get('[data-qa="country"]').select(country);
+        cy.get('[data-qa="state"]').type(state);
+        cy.get('[data-qa="city"]').type(city);
+        cy.get('[data-qa="zipcode"]').type(zipCode);
+        cy.get('[data-qa="mobile_number"]').type(mobileNumber);
+
+        // Create the Account
+        cy.get('[data-qa="create-account"]').click();
+
+        cy.get('.col-sm-9').should('contain',creationTitle);
+        cy.get('[data-qa="continue-button"]').click();
+        cy.get('.shop-menu > .nav > :nth-child(2) > a').click()
+        cy.get('#search_product').type('Men')
+        cy.get('#submit_search').click()
+        cy.get('.product-image-wrapper > .single-products > .productinfo > p').then(($searchedProduct) =>{
+            expect($searchedProduct).to.have.length(4)
+            cy.log($searchedProduct.eq(0).text())
+            expect($searchedProduct.eq(0).text()).to.be.contains('Men')
+            cy.log($searchedProduct.eq(1).text())
+            expect($searchedProduct.eq(1).text()).to.not.contains('Men')
+            cy.log($searchedProduct.eq(2).text())
+            expect($searchedProduct.eq(2).text()).to.not.contains('Men')
+            cy.log($searchedProduct.eq(3).text())
+            expect($searchedProduct.eq(3).text()).to.be.contains('MEN')
+        })
+        cy.get('a[href="/delete_account"]').click();
+        cy.get('b').invoke('text').then((delMsg) => {
+            expect(delMsg).equal('Account Deleted!')
+        })
+        cy.get('[data-qa="continue-button"]').click()
+    })
+})

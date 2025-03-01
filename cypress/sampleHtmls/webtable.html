@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Customer Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Details</h1>
+        <table id="customerTable">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Customer ID</th>
+                    <th>Book Purchased</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added here by JavaScript -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>1001</td>
+                    <td>The Great Gatsby</td>
+                    <td>1</td>
+                    <td>315.99</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>1002</td>
+                    <td>1984</td>
+                    <td>2</td>
+                    <td>629.98</td>
+                </tr>
+                <tr>
+                    <td>Sam Brown</td>
+                    <td>0903</td>
+                    <td>To Kill a Mockingbird</td>
+                    <td>1</td>
+                    <td>512.99</td>
+                </tr>
+                <tr>
+                    <td>Emily White</td>
+                    <td>2004</td>
+                    <td>The Catcher in the Rye</td>
+                    <td>1</td>
+                    <td>110.99</td>
+                </tr>
+            </tbody>
+        </table>
+        <form id="customerForm" >
+            <input type="text" id="customerName" placeholder="Customer Name" required>
+            <input type="text" id="customerID" placeholder="Customer ID" required>
+            <input type="text" id="bookPurchased" placeholder="Book Purchased" required>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <input type="number" id="cost" placeholder="Cost" required>
+            <button type="submit" id="submit-new-row">Add Customer</button>
+        </form>
+    </div>
+      <script src="script.js"></script>
+</body>
+</html>

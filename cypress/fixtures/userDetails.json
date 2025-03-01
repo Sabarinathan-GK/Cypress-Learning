@@ -1,0 +1,29 @@
+{
+  "name" : "NaMuthukumar G",
+  "email" : "abcdedemo1",
+  "password" : "Sasabari@26",
+  "days" : 26,
+  "month" : 9,
+  "year" : "1999",
+  "firstName" : "NaMuthukumar",
+  "lastName" : "G",
+  "company" : "CTS",
+  "address" : "No 8 Baja Street",
+  "addresstwo" : "T Nagar",
+  "country" : "India",
+  "state" : "Tamil Nadu",
+  "city" : "Chennai",
+  "zipCode" : 620033,
+  "mobileNumber" : 9897766899,
+  "logAccount" : {
+    "validUsers": {
+    "email" : "abcde1demo",
+    "password" : "Sasabari@26"
+    },
+    "invalidUsers": {
+    "email" : "abcde1demo1",
+    "password" : "Sasabari@26"
+    }
+  }
+}
+
